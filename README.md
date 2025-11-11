@@ -64,7 +64,7 @@ that is originally based on <a target="_blank" href="https://drivendata.github.i
 #cookiecuttermlops #cookiecutterdatascience</small></p>
 
 
-Run the project by downloading the data from this kaggle [link](https://www.kaggle.com/datasets/saadaliyaseen/decoding-medical-costs-analyzing-insurance-data/data)
+Run the project by downloading the data from this kaggle in data/raw [link](https://www.kaggle.com/datasets/saadaliyaseen/decoding-medical-costs-analyzing-insurance-data/data)
 Then use `source ./run.sh` to run the pipeline.
 
 Final MSE: 148180199.50269985

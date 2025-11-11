@@ -28,13 +28,13 @@ def clean_and_encode(filepath: str, output_path: str = None) -> pd.DataFrame:
     # One-hot encode categorical columns
     df = pd.get_dummies(df, columns=['sex', 'smoker', 'region'], drop_first=True)
 
-    scalecols = ["age","bmi","children"]
-    sdf = df[scalecols]
+    # scalecols = ["age","bmi","children"]
+    # sdf = df[scalecols]
 
-    scaler = StandardScaler()
-    df_scaled = scaler.fit_transform(df[scalecols])
-    resdf = df.drop(scalecols)
-    df = pd.concat(resdf, df_scaled)
+    # scaler = StandardScaler()
+    # df_scaled = scaler.fit_transform(df[scalecols])
+    # resdf = df.drop(scalecols)
+    # df = pd.concat(resdf, df_scaled)
     
     # Save if output path provided
     if output_path:
