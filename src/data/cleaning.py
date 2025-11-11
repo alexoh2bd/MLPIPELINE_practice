@@ -1,9 +1,9 @@
 """
 Data cleaning module for insurance dataset.
 """
-
+from sklearn.preprocessing import StandardScaler 
 import pandas as pd
-
+import os
 
 def clean_and_encode(filepath: str, output_path: str = None) -> pd.DataFrame:
     """
@@ -28,6 +28,14 @@ def clean_and_encode(filepath: str, output_path: str = None) -> pd.DataFrame:
     # One-hot encode categorical columns
     df = pd.get_dummies(df, columns=['sex', 'smoker', 'region'], drop_first=True)
 
+    scalecols = ["age","bmi","children"]
+    sdf = df[scalecols]
+
+    scaler = StandardScaler()
+    df_scaled = scaler.fit_transform(df[scalecols])
+    resdf = df.drop(scalecols)
+    df = pd.concat(resdf, df_scaled)
+    
     # Save if output path provided
     if output_path:
         df.to_csv(output_path, index=False)
@@ -36,6 +44,12 @@ def clean_and_encode(filepath: str, output_path: str = None) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    df_cleaned = clean_and_encode("../../insurance.csv")
+    inputpath = os.getcwd() +"/data/raw/insurance.csv"
+    outputpath = os.getcwd() +"/data/processed/insurance.csv"
+
+    df_cleaned = clean_and_encode(inputpath, outputpath)
+
+    df = pd.read_csv(inputpath)
+    ycol = ['charges']
     print(f"Shape: {df_cleaned.shape}")
     print(df_cleaned.head())
