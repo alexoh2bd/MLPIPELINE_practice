@@ -62,3 +62,9 @@ mlops_practice/
 <p><small>Project based on the <a target="_blank" href="https://github.com/Chim-SO/cookiecutter-mlops/">cookiecutter MLOps project template</a>
 that is originally based on <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. 
 #cookiecuttermlops #cookiecutterdatascience</small></p>
+
+
+Run the project by downloading the data from this kaggle [link](https://www.kaggle.com/datasets/saadaliyaseen/decoding-medical-costs-analyzing-insurance-data/data)
+Then use `source ./run.sh` to run the pipeline.
+
+Final MSE: 148180199.50269985
